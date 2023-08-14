@@ -1,0 +1,74 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 1.5rem 2rem;
+}
+
+ol.container {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+
+li.teaser > * {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+li.teaser > .teaser-link > img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+li.teaser {
+  background-color: azure;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+li.teaser > .teaser-link > span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 3px;
+  color: white;
+  text-decoration: none;
+  background-color: rgba(0, 0, 51, 0.75);
+  padding: 0.5rem 0.75rem;
+}
+
+@media screen and (min-width: 768px) {
+  ol.container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  ol.container {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  li.teaser.teaser--md {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  li.teaser.teaser--lg {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}
